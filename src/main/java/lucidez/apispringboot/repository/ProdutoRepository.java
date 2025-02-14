@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import lucidez.apispringboot.entity.Produto;
 
 @Repository
-public interface produtoRepository extends JpaRepository<Produto, Long> {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
 }
