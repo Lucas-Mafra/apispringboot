@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lucidez.apispringboot.entity.Produto;
+import lucidez.apispringboot.exception.ProdutoNullException;
+import lucidez.apispringboot.exception.ProdutoPrecoException;
 import lucidez.apispringboot.service.ProdutoService;
 
 
@@ -23,9 +25,8 @@ public class ProdutoController {
     ProdutoService produtoService;
     
     @PostMapping(value = "/save")
-    public ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto) {
+    public ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto) throws Exception {
         produto = produtoService.save(produto);
-
         return ResponseEntity.ok().body(produto);
     }
 
@@ -40,5 +41,4 @@ public class ProdutoController {
         List<Produto> produtos = produtoService.findAll();
         return ResponseEntity.ok().body(produtos);
     }
-}
 }
