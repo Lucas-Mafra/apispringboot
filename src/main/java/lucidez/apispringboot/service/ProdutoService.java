@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import lucidez.apispringboot.entity.Produto; // Entidade
-import lucidez.apispringboot.repository.ProdutoRepository; // SQL
+import lucidez.apispringboot.entity.Produto;
+import lucidez.apispringboot.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
