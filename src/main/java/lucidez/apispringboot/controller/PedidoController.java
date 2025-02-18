@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lucidez.apispringboot.entity.Pedido;
 import lucidez.apispringboot.service.PedidoService;
 
-
-
 @Controller
 @RequestMapping(value = "/pedido")
 public class PedidoController {
