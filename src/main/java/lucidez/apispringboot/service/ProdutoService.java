@@ -16,7 +16,7 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-    public Produto save (Produto produto)  throws Exception {
+    public Produto save (Produto produto) throws Exception {
         if (produto.getNome() == null || produto.getPreco() == null)
             throw new ProdutoNullException();
         if (produto.getPreco() < 0)
