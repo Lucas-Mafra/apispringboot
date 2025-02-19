@@ -8,12 +8,14 @@ import org.hibernate.annotations.FetchMode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
+@Entity
 public class User implements UserDetails {
 
     private static final long serialVersionUID = 7863411787027926206L;
@@ -92,6 +94,14 @@ public class User implements UserDetails {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
     }
 
     @Override
