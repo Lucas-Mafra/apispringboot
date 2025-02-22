@@ -17,6 +17,7 @@ import lucidez.apispringboot.auth.entity.User;
 import lucidez.apispringboot.auth.repository.UserRepository;
 import lucidez.apispringboot.configuration.jwt.JwtRequest;
 import lucidez.apispringboot.configuration.jwt.JwtTokenUtil;
+import lucidez.apispringboot.tools.SpringApplicationContext;
 
 @Service
 public class UserService implements UserDetailsService{ 
@@ -24,8 +25,8 @@ public class UserService implements UserDetailsService{
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    //@Autowired
+    //private AuthenticationManager authenticationManager;
 
 
     @Autowired
@@ -63,7 +64,9 @@ public class UserService implements UserDetailsService{
 
     private void autheticate(String username, String password) throws Exception {
         try {
+            AuthenticationManager authenticationManager = SpringApplicationContext.getBean(AuthenticationManager.class);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        
         } catch (DisabledException e) {
            throw new Exception("USUARIO DESABILITADO, e");
         } catch (BadCredentialsException e){

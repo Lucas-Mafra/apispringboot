@@ -25,10 +25,6 @@ import lucidez.apispringboot.configuration.jwt.JwtRequestFilter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-    
-    @Autowired
-    @Lazy
-    public UserService userService;
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
